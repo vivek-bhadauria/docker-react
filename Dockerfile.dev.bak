@@ -1,0 +1,13 @@
+# Specify base image
+FROM alpine
+
+WORKDIR /usr/app
+
+# Install the dependencies
+RUN apk add --update nodejs npm
+COPY package.json .
+RUN npm install
+COPY . .
+
+# Specify startup command
+CMD ["npm", "run", "start"]
