@@ -5,9 +5,9 @@ WORKDIR /usr/app
 
 # Install the dependencies
 RUN apk add --update nodejs npm
-COPY --chown=node:node package.json .
+COPY package.json .
 RUN npm install
-COPY --chown=node:node . .
+COPY . .
 
 # Specify startup command
 CMD ["npm", "run", "start"]
